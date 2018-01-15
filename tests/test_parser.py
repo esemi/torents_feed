@@ -1,9 +1,11 @@
 import unittest
 import os
 
+import asynctest
+import copy
 import lxml.html
 
-from parser import parse, TorrentItem, RUTOR_HOST, torrent_size_to_gbytes
+from parser import parse, TorrentItem, RUTOR_HOST, torrent_size_to_gbytes, Storage
 
 SOURCE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'test_pages'))
 
@@ -22,15 +24,13 @@ class TorrentListParserTest(unittest.TestCase):
         self.assertEqual([], parse('<!doctype html> sd sd </sdsd  </sdsd> <sss'))
 
     def test_smoke(self):
-        import logging
-        logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', level=logging.DEBUG)
         res = parse(_get_source('torrents_list.html'))
 
         self.assertIsInstance(res, list)
         self.assertEqual(len(res), 100)
         for row in res:
             self.assertIsInstance(row, TorrentItem)
-            self.assertTrue(row.success,)
+            self.assertTrue(row.success)
 
 
 class TorrentItemParserTest(unittest.TestCase):
@@ -134,5 +134,29 @@ class TorrentBookmarkTokenTest(unittest.TestCase):
             self.assertEqual(res, expected)
 
 
+class ModelsTest(asynctest.TestCase):
+    async def test_smoke(self):
+        s = Storage()
+        id = 'unittest bookmark title'
+        await s.bookmarks.delete_many({'_id': id})
+        await s.torrents.delete_many({'title': id})
+
+        item = TorrentItem()
+        item.success = True
+        item.title = id
+        item.id = 1
+        item.bookmark_title = id
+
+        item2 = copy.copy(item)
+        item2.id = 2
+
+        await s.save_rows([item, item, item2])
+
+        self.assertEqual(await s.bookmarks.find({'_id': id}).count(), 1)
+        self.assertEqual(await s.torrents.find({'title': id}).count(), 2)
+
+
 if __name__ == '__main__':
+    import logging
+    logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', level=logging.DEBUG)
     unittest.main()
