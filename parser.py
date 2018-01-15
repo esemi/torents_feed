@@ -16,10 +16,10 @@ from lxml.etree import ParserError
 USER_AGENT = 'todo'
 RUTOR_HOST = 'http://rus-tor.com'
 URL = '%s/browse/%%d/1/0/0' % RUTOR_HOST
-TIMEOUT = 25
+TIMEOUT = 20
 CONCURRENCY = 1
-PAGES_COUNT = 10
-DEBUG = True
+PAGES_COUNT = 3
+DEBUG = False
 
 assert CONCURRENCY
 assert PAGES_COUNT
@@ -109,32 +109,37 @@ async def fetch(session, page: int) -> bool:
     async with session.get(url, headers={'User-Agent': USER_AGENT}) as resp:
         response_content = await resp.text()
         fetch_time = time.time()
-        logging.debug('Fetch {}: {} {}, took: {:.2f} seconds'.format(url, len(response_content), resp.status,
-                                                                     fetch_time - start_time))
+        logging.info('Fetch {}: content len {}, code {}, took: {:.2f} seconds'.format(url, len(response_content),
+                                                                                      resp.status,
+                                                                                      fetch_time - start_time))
         if resp.status != 200:
             return False
 
-        result, parse_data = parse(response_content)
+        torrents_list = parse(response_content)
         parse_time = time.time()
-        logging.debug('Parse %s: %s %s, took: {%.2f} seconds', url, result, len(parse_data), parse_time - fetch_time)
+        logging.info('Parse %s: rows %s, took: {%.2f} seconds', url, len(torrents_list), parse_time - fetch_time)
 
         # todo save rows
+        new_items_count = 0
+        new_bookmarks_count = 0
         save_time = time.time()
-        logging.debug('Save %s: took: {%.2f} seconds', url, save_time - parse_time)
+        logging.info('Save %s: new items %d, new bookmarks %s, took: {%.2f} seconds', url, new_items_count,
+                     new_bookmarks_count, save_time - parse_time)
 
         return True
 
 
-async def task(pid: int, page_number: int, sem: asyncio.Semaphore):
+async def task(page_number: int, sem: asyncio.Semaphore):
     async with sem:
-        logging.debug('Task {} started ({})'.format(pid, page_number))
+        logging.info('Task {} started'.format(page_number))
         async with aiohttp.ClientSession() as session:
             try:
                 async with async_timeout.timeout(TIMEOUT):
                     result = await fetch(session, page_number)
-                    logging.info('process result %d %s', page_number, result)
+                    logging.info('Task %d ended %s', page_number, result)
             except BaseException as e:
-                logging.warning('Exception %s %s' % (type(e), str(e)))
+                logging.warning('Task exception %s %s' % (type(e), str(e)))
+                logging.exception(e)
 
 
 async def main():
@@ -142,7 +147,7 @@ async def main():
     start_time = time.time()
 
     sem = asyncio.Semaphore(CONCURRENCY)
-    tasks = [asyncio.ensure_future(task(page, page, sem)) for page in range(PAGES_COUNT)]
+    tasks = [asyncio.ensure_future(task(page, sem)) for page in range(PAGES_COUNT)]
     await asyncio.wait(tasks)
 
     end_time_in_sec = time.time() - start_time
