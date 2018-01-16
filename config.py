@@ -5,7 +5,7 @@ URL = '%s/browse/%%d/1/0/0' % RUTOR_HOST
 TIMEOUT = 20
 CONCURRENCY = 1
 PAGES_COUNT = 10
-DEBUG = True
+DEBUG = False
 
 MONGO_HOST = 'localhost'
 MONGO_PORT = 27017

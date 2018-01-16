@@ -159,6 +159,4 @@ class ModelsTest(asynctest.TestCase):
 
 
 if __name__ == '__main__':
-    import logging
-    logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', level=logging.DEBUG)
     unittest.main()

@@ -14,6 +14,8 @@ from lxml.etree import ParserError
 import config
 from storage import Storage
 
+S = Storage()
+
 
 class TorrentItem(object):
     success = True
@@ -107,7 +109,7 @@ def parse(source: str) -> Optional[list]:
     return [TorrentItem(r) for r in rows]
 
 
-async def fetch(storage: Storage, session, page: int) -> bool:
+async def fetch(session, page: int) -> bool:
     start_time = time.time()
     url = config.URL % page
     async with session.get(url, encoding='utf-8', headers={'User-Agent': config.USER_AGENT}) as resp:
@@ -124,7 +126,7 @@ async def fetch(storage: Storage, session, page: int) -> bool:
         logging.info('Parse %s: rows %s, took: {%.2f} seconds', url, len(torrents_list), parse_time - fetch_time)
 
         if torrents_list:
-            new_items_count, new_bookmarks_count = await storage.save_rows(torrents_list)
+            new_items_count, new_bookmarks_count = await S.save_rows(torrents_list)
             save_time = time.time()
             logging.info('Save %s: new items %d, new bookmarks %s, took: {%.2f} seconds', url, new_items_count,
                          new_bookmarks_count, save_time - parse_time)
@@ -132,13 +134,13 @@ async def fetch(storage: Storage, session, page: int) -> bool:
         return True
 
 
-async def task(storage: Storage, page_number: int, sem: asyncio.Semaphore):
+async def task(page_number: int, sem: asyncio.Semaphore):
     async with sem:
         logging.info('Task {} started'.format(page_number))
         async with aiohttp.ClientSession() as session:
             try:
                 async with async_timeout.timeout(config.TIMEOUT):
-                    result = await fetch(storage, session, page_number)
+                    result = await fetch(session, page_number)
                     logging.info('Task %d ended %s', page_number, result)
             except BaseException as e:
                 logging.warning('Task exception %s %s' % (type(e), str(e)))
@@ -149,9 +151,8 @@ async def main():
     logging.info('Start %s clients for %s pages parse' % (config.CONCURRENCY, config.PAGES_COUNT))
     start_time = time.time()
 
-    storage = Storage()
     sem = asyncio.Semaphore(config.CONCURRENCY)
-    tasks = [asyncio.ensure_future(task(storage, page, sem)) for page in range(config.PAGES_COUNT)]
+    tasks = [asyncio.ensure_future(task(page, sem)) for page in range(config.PAGES_COUNT)]
     await asyncio.wait(tasks)
 
     end_time_in_sec = time.time() - start_time

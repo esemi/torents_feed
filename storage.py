@@ -1,6 +1,7 @@
 import logging
 import datetime
 
+import pymongo
 from pymongo.errors import DuplicateKeyError
 import motor.motor_asyncio
 
@@ -9,10 +10,13 @@ from config import MONGO_HOST, MONGO_PORT, MONGO_DB
 
 class Storage(object):
     def __init__(self):
-        client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_HOST, MONGO_PORT)
-        db = client[MONGO_DB]
+        self.client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_HOST, MONGO_PORT)
+        db = self.client[MONGO_DB]
         self.bookmarks = db.bookmark_collection
         self.torrents = db.torrent_collection
+
+    def set_io_loop(self, loop):
+        self.client.io_loop = loop
 
     async def save_rows(self, items: list) -> tuple():
         new_bookmarks = 0
@@ -38,3 +42,15 @@ class Storage(object):
                 logging.debug('torrent item already exist %s %s', item.id, item.title)
 
         return new_items, new_bookmarks
+
+    async def get_unsort_bookmarks(self) -> list:
+        return await self.bookmarks.find({'favorite': False, 'trash': False}, projection=['_id', 'date_create'],
+                                         sort=[('date_create', pymongo.DESCENDING)]).to_list(None)
+
+    async def get_trash_bookmarks(self) -> list:
+        return await self.bookmarks.find({'trash': True}, projection=['_id', 'date_create'],
+                                         sort=[('date_create', pymongo.DESCENDING)]).to_list(None)
+
+    async def get_favorite_bookmarks(self) -> list:
+        return await self.bookmarks.find({'favorite': True, 'trash': False}, projection=['_id', 'date_create'],
+                                         sort=[('date_create', pymongo.DESCENDING)]).to_list(None)
