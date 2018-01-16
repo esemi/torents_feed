@@ -4,7 +4,7 @@ RUTOR_HOST = 'http://www.xn--c1avfbif.net'
 URL = '%s/browse/%%d/1/0/0' % RUTOR_HOST
 TIMEOUT = 20
 CONCURRENCY = 1
-PAGES_COUNT = 10
+PAGES_COUNT = 2
 DEBUG = False
 
 MONGO_HOST = 'localhost'
@@ -15,6 +15,9 @@ try:
     from config_local import *
 except ImportError:
     pass
+
+
+CONCURRENCY = min(CONCURRENCY, PAGES_COUNT)
 
 assert CONCURRENCY
 assert PAGES_COUNT

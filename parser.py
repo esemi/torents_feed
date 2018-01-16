@@ -28,10 +28,6 @@ class TorrentItem(object):
 
     def __init__(self, row_elem: lxml.html.HtmlElement=None):
         """Русское название / Оригинальное название (Год выпуска) Качество видео | Качество перевода | Версия"""
-        if row_elem is None:
-            self.success = False
-            return
-
         try:
             torent_link = row_elem.xpath('.//a[@class="downgif"]/@href')[0].strip()
             logging.debug('parse id debug "%s"', torent_link)
@@ -98,12 +94,13 @@ def parse(source: str) -> Optional[list]:
     try:
         document = lxml.html.fromstring(source)
     except (ParserError, TypeError) as e:
-        logging.warning('parse exception %s', e)
+        logging.warning('parse init exception %s', e)
         return None
 
     try:
         rows = document.xpath('//div[@id="index"]//tr[@class!="backgr"]')
     except IndexError:
+        logging.warning('rows not found')
         return None
 
     return [TorrentItem(r) for r in rows]
