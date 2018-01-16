@@ -5,7 +5,9 @@ import asynctest
 import copy
 import lxml.html
 
-from parser import parse, TorrentItem, RUTOR_HOST, torrent_size_to_gbytes, Storage
+from parser import parse, TorrentItem
+from config import RUTOR_HOST
+from storage import Storage
 
 SOURCE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'test_pages'))
 
@@ -100,7 +102,7 @@ class TorrentSizeDecodeTest(unittest.TestCase):
     def test_invalid_size(self):
         for i in ['1.08 GsdsdB', '', '0.00 KB']:
             try:
-                torrent_size_to_gbytes(i)
+                TorrentItem.torrent_size_to_gbytes(i)
             except Exception as e:
                 exc = e
             else:
@@ -108,15 +110,15 @@ class TorrentSizeDecodeTest(unittest.TestCase):
             self.assertIsInstance(exc, Exception)
 
     def test_gbytes_size(self):
-        res = torrent_size_to_gbytes('1.08 GB')
+        res = TorrentItem.torrent_size_to_gbytes('1.08 GB')
         self.assertEqual(1.08, res)
 
     def test_tbytes_size(self):
-        res = torrent_size_to_gbytes('1.113 TB')
+        res = TorrentItem.torrent_size_to_gbytes('1.113 TB')
         self.assertEqual(1.113 * 1024., res)
 
     def test_mbytes_size(self):
-        res = torrent_size_to_gbytes('107.08 MB')
+        res = TorrentItem.torrent_size_to_gbytes('107.08 MB')
         self.assertEqual(107.08 / 1024., res)
 
 

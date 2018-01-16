@@ -1,0 +1,4 @@
+*.pyc
+cache/*
+logs/*
+config_local.py

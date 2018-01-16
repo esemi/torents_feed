@@ -1,5 +1,9 @@
 aiohttp
+aiodns
 async_timeout
 lxml
 motor
+pymongo
 asynctest
+sanic
+gunicorn

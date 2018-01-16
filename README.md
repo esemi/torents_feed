@@ -1,4 +1,4 @@
-## Rutor.info local feed with grouping
+## Rutor.info live feed
 
 
 ### Task list backend
