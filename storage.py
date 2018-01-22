@@ -43,14 +43,30 @@ class Storage(object):
 
         return new_items, new_bookmarks
 
-    async def get_unsort_bookmarks(self) -> list:
-        return await self.bookmarks.find({'favorite': False, 'trash': False}, projection=['_id', 'date_create'],
-                                         sort=[('date_create', pymongo.DESCENDING)]).to_list(None)
+    async def get_stat(self) -> dict:
+        o = dict()
+
+        last_bookmark = await self.bookmarks.find_one(sort=[('date_create', pymongo.DESCENDING)], limit=1)
+        last_torrent = await self.torrents.find_one(sort=[('date_create', pymongo.DESCENDING)], limit=1)
+
+        o['last_bookmark'] = None if not last_bookmark else last_bookmark['_id']
+        o['last_torrent'] = None if not last_torrent else last_torrent['title']
+        try:
+            o['last_update'] = max(last_bookmark['date_create'], last_torrent['date_create'])
+        except KeyError:
+            o['last_update'] = None
+        o['total_bookmarks'] = await self.bookmarks.find().count()
+        o['total_torrents'] = await self.torrents.find().count()
+        return o
+
+    async def get_unsort_bookmarks(self, limit: int) -> list:
+        return await self.bookmarks.find({'favorite': False, 'trash': False}, projection=['_id'],
+                                         sort=[('date_create', pymongo.DESCENDING)], limit=limit).to_list(None)
 
     async def get_trash_bookmarks(self) -> list:
-        return await self.bookmarks.find({'trash': True}, projection=['_id', 'date_create'],
+        return await self.bookmarks.find({'trash': True}, projection=['_id'],
                                          sort=[('date_create', pymongo.DESCENDING)]).to_list(None)
 
     async def get_favorite_bookmarks(self) -> list:
-        return await self.bookmarks.find({'favorite': True, 'trash': False}, projection=['_id', 'date_create'],
+        return await self.bookmarks.find({'favorite': True, 'trash': False}, projection=['_id'],
                                          sort=[('date_create', pymongo.DESCENDING)]).to_list(None)

@@ -19,9 +19,16 @@ def init(sanic, loop):
     S.set_io_loop(loop)
 
 
+@rutor_bp.get("/stat.json")
+async def bookmark_unsort(request):
+    stat = await S.get_stat()
+    return json({'stat': stat})
+
+
 @rutor_bp.get("/bookmarks/unsort.json")
 async def bookmark_unsort(request):
-    bookmarks = await S.get_unsort_bookmarks()
+    limit = int(request.args.get('limit', 100))
+    bookmarks = await S.get_unsort_bookmarks(limit)
     return json({'bookmarks': bookmarks})
 
 

@@ -1,5 +1,6 @@
 #! /usr/bin/env python3.6
 # -*- coding: utf-8 -*-
+import datetime
 import time
 import asyncio
 import logging
@@ -25,6 +26,7 @@ class TorrentItem(object):
     size = None
     title = None
     bookmark_title = None
+    date_create = datetime.datetime.utcnow()
 
     def __init__(self, row_elem: lxml.html.HtmlElement=None):
         """Русское название / Оригинальное название (Год выпуска) Качество видео | Качество перевода | Версия"""
@@ -87,6 +89,7 @@ class TorrentItem(object):
             'tor_link': self.tor_link,
             'size_gb': self.size,
             'bookmark_id': self.bookmark_title,
+            'date_create': self.date_create,
         }
 
 
