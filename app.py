@@ -28,13 +28,15 @@ async def bookmark_unsort(request):
 @rutor_bp.get("/bookmarks/unsort.json")
 async def bookmark_unsort(request):
     limit = int(request.args.get('limit', 100))
-    bookmarks = await S.get_unsort_bookmarks(limit)
+    bookmarks = await S.get_unsort_bookmarks(max(config.LIMIT_MAX, limit))
     return json({'bookmarks': bookmarks})
 
 
 @rutor_bp.get("/bookmarks/trash.json")
 async def bookmark_trash(request):
-    bookmarks = await S.get_trash_bookmarks()
+    limit = int(request.args.get('limit', 100))
+    offset = int(request.args.get('offset', 0))
+    bookmarks = await S.get_trash_bookmarks(max(config.LIMIT_MAX, limit), offset)
     return json({'bookmarks': bookmarks})
 
 

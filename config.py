@@ -11,6 +11,8 @@ MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
 MONGO_DB = 'rutor'
 
+LIMIT_MAX = 1000
+
 try:
     from config_local import *
 except ImportError:
