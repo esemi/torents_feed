@@ -1,3 +1,5 @@
+import urllib.parse
+
 from sanic import Sanic
 from sanic.response import json
 from sanic import Blueprint
@@ -18,9 +20,15 @@ def init(sanic, loop):
 
 
 @app.get("/stat.json")
-async def bookmark_unsort(request):
+async def stat(request):
     stat = await S.get_stat()
     return json({'stat': stat})
+
+
+@app.get("/torrents/<bookmark_id>")
+async def bookmark_torrents(request, bookmark_id):
+    torrents = await S.get_torrents_by_bookmark(urllib.parse.unquote(bookmark_id))
+    return json({'torrents': torrents})
 
 
 @app.get("/bookmarks/unsort.json")

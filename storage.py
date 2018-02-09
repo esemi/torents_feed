@@ -59,6 +59,9 @@ class Storage(object):
         o['total_torrents'] = await self.torrents.find().count()
         return o
 
+    async def get_torrents_by_bookmark(self, bookmark_id: str) -> list:
+        return await self.torrents.find({'bookmark_id': bookmark_id}, sort=[('size_gb', pymongo.ASCENDING)]).to_list(None)
+
     async def get_unsort_bookmarks(self, limit: int) -> list:
         return await self.bookmarks.find({'favorite': False, 'trash': False}, projection=['_id'],
                                          sort=[('date_create', pymongo.DESCENDING)], limit=limit).to_list(None)
