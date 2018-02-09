@@ -3,10 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let favorites_offset = 0;
     let unsort_limit = 15;
 
-    fetch(new Request('/rutor/stat.json'))
+    fetch(new Request('/stat.json'))
     .then(function(response) { return response.json(); })
     .then(function(response_json) {
-        console.log(response_json);
         stat = response_json['stat']
         document.querySelector('#stat_last_update').innerHTML = new Date(stat['last_update'] * 1000).toISOString()
         document.querySelector('#stat_total_bookmarks').innerHTML = stat['total_bookmarks']
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function loadBookmarks(type, limit, offset) {
-        fetch(new Request(`/rutor/bookmarks/${type}.json?limit=${limit}`))
+        fetch(new Request(`/bookmarks/${type}.json?limit=${limit}`))
         .then(function(response) { return response.json(); })
         .then(function(response_json) {
             let container = document.querySelector(`#${type} ul`);

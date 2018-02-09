@@ -63,10 +63,10 @@ class Storage(object):
         return await self.bookmarks.find({'favorite': False, 'trash': False}, projection=['_id'],
                                          sort=[('date_create', pymongo.DESCENDING)], limit=limit).to_list(None)
 
-    async def get_trash_bookmarks(self, limit: int, offset: int) -> list:
+    async def get_trash_bookmarks(self, limit: int, offset: int=0) -> list:
         return await self.bookmarks.find({'trash': True}, projection=['_id'],
                                          sort=[('date_create', pymongo.DESCENDING)], limit=limit, skip=offset).to_list(None)
 
-    async def get_favorite_bookmarks(self, limit: int, offset: int) -> list:
+    async def get_favorite_bookmarks(self, limit: int, offset: int=0) -> list:
         return await self.bookmarks.find({'favorite': True, 'trash': False}, projection=['_id'],
                                          sort=[('date_create', pymongo.DESCENDING)], limit=limit, skip=offset).to_list(None)

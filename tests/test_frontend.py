@@ -13,19 +13,19 @@ class FrontEndpointTest(unittest.TestCase):
             self.assertIsInstance(r['_id'], str)
 
     def test_unsort_bookmarks(self):
-        request, response = app.test_client.get('/rutor/bookmarks/unsort.json?limit=10')
+        request, response = app.test_client.get('/bookmarks/unsort.json?limit=10')
         self._check_bookmark_structure(response)
 
     def test_trash_bookmarks(self):
-        request, response = app.test_client.get('/rutor/bookmarks/trash.json')
+        request, response = app.test_client.get('/bookmarks/trash.json?limit=10')
         self._check_bookmark_structure(response)
 
     def test_favorite_bookmarks(self):
-        request, response = app.test_client.get('/rutor/bookmarks/favorite.json')
+        request, response = app.test_client.get('/bookmarks/favorite.json?limit=10')
         self._check_bookmark_structure(response)
 
     def test_stat(self):
-        request, response = app.test_client.get('/rutor/stat.json')
+        request, response = app.test_client.get('/stat.json')
         self.assertEqual(response.status, 200)
         self.assertIsInstance(response.json, dict)
         self.assertIn('stat', response.json)

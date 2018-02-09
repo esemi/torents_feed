@@ -1,5 +1,4 @@
-USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
-# RUTOR_HOST = 'http://rus-tor.com'
+USER_AGENT = 'rutor.esemi.ru Bot v0.2'
 RUTOR_HOST = 'http://www.xn--c1avfbif.net'
 URL = '%s/browse/%%d/1/0/0' % RUTOR_HOST
 TIMEOUT = 20
