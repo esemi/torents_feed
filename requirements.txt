@@ -6,4 +6,4 @@ motor==2.0.0
 pymongo==3.7.1
 asynctest==0.12.2
 sanic==0.7.0
-gunicorn
+gunicorn==19.8.1
