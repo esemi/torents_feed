@@ -1,8 +1,10 @@
+#! /usr/bin/env python3.6
+# -*- coding: utf-8 -*-
+
 import urllib.parse
 
 from sanic import Sanic
 from sanic.response import json
-from sanic import Blueprint
 
 from storage import Storage
 import config

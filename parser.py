@@ -112,7 +112,7 @@ def parse(source: str) -> Optional[list]:
 async def fetch(session, page: int) -> bool:
     start_time = time.time()
     url = config.URL % page
-    async with session.get(url, encoding='utf-8', headers={'User-Agent': config.USER_AGENT}) as resp:
+    async with session.get(url, headers={'User-Agent': config.USER_AGENT}) as resp:
         response_content = await resp.text(encoding='utf-8', errors='ignore')
         fetch_time = time.time()
         logging.info('Fetch {}: content len {}, code {}, took: {:.2f} seconds'.format(url, len(response_content),
@@ -134,7 +134,7 @@ async def fetch(session, page: int) -> bool:
         return True
 
 
-async def task(page_number: int, sem: asyncio.Semaphore):
+async def task(page_number: int, sem: asyncio.Semaphore) -> bool:
     async with sem:
         logging.info('Task {} started'.format(page_number))
         async with aiohttp.ClientSession() as session:
@@ -142,22 +142,27 @@ async def task(page_number: int, sem: asyncio.Semaphore):
                 async with async_timeout.timeout(config.TIMEOUT):
                     result = await fetch(session, page_number)
                     logging.info('Task %d ended %s', page_number, result)
+                    return result
             except BaseException as e:
                 logging.warning('Task exception %s %s' % (type(e), str(e)))
                 logging.exception(e)
+        return False
 
 
-async def main():
+async def main() -> list:
+    """
+    :return: List of task results [bool, ...]
+    """
     logging.info('Start %s clients for %s pages parse' % (config.CONCURRENCY, config.PAGES_COUNT))
     start_time = time.time()
 
     sem = asyncio.Semaphore(config.CONCURRENCY)
     tasks = [asyncio.ensure_future(task(page, sem)) for page in range(config.PAGES_COUNT)]
-    await asyncio.wait(tasks)
+    res = await asyncio.gather(*tasks)
 
     end_time_in_sec = time.time() - start_time
     logging.info("End %.2f seconds" % end_time_in_sec)
-
+    return res
 
 if __name__ == '__main__':
     logging.basicConfig(

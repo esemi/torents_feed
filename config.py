@@ -1,5 +1,5 @@
 USER_AGENT = 'rutor.esemi.ru Bot v0.2'
-RUTOR_HOST = 'http://www.xn--c1avfbif.net'
+RUTOR_HOST = 'http://new-rutor.org'  # fixme
 URL = '%s/browse/%%d/1/0/0' % RUTOR_HOST
 TIMEOUT = 20
 CONCURRENCY = 1

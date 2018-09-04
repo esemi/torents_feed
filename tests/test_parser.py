@@ -154,8 +154,16 @@ class ModelsTest(asynctest.TestCase):
 
         await s.save_rows([item, item, item2])
 
-        self.assertEqual(await s.bookmarks.find({'_id': id}).count(), 1)
-        self.assertEqual(await s.torrents.find({'title': id}).count(), 2)
+        self.assertEqual(await s.bookmarks.count_documents({'_id': id}), 1)
+        self.assertEqual(await s.torrents.count_documents({'title': id}), 2)
+
+
+class ParserTaskTest(asynctest.TestCase):
+    async def test_smoke(self):
+        import parser
+        res = await parser.main()
+        for r in res:
+            self.assertTrue(r)
 
 
 if __name__ == '__main__':

@@ -18,7 +18,7 @@ class Storage(object):
     def set_io_loop(self, loop):
         self.client.io_loop = loop
 
-    async def save_rows(self, items: list) -> tuple():
+    async def save_rows(self, items: list) -> tuple:
         new_bookmarks = 0
         new_items = 0
         for item in items:
@@ -55,8 +55,8 @@ class Storage(object):
             o['last_update'] = max(last_bookmark['date_create'], last_torrent['date_create'])
         except KeyError:
             o['last_update'] = None
-        o['total_bookmarks'] = await self.bookmarks.find().count()
-        o['total_torrents'] = await self.torrents.find().count()
+        o['total_bookmarks'] = await self.bookmarks.count_documents({})
+        o['total_torrents'] = await self.torrents.count_documents({})
         return o
 
     async def get_torrents_by_bookmark(self, bookmark_id: str) -> list:
